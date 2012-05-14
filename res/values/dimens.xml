@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="candidate_text_size">18sp</dimen>
+    <dimen name="score_text_size">12sp</dimen>
+    <dimen name="score_pad_vert">2dp</dimen>
+    <dimen name="score_pad_horiz">8dp</dimen>
+    <dimen name="bully_button_pad">-20dp</dimen>
+    <dimen name="skip_button_pad">-25dp</dimen>
+</resources>

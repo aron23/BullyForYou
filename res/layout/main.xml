@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ViewSwitcher xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/screenSwitcher"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="#424647"
+    android:gravity="center">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/toplevel"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" 
+    android:background="#748387"
+    android:weightSum="100">
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:id="@+id/candidate_box"
+	    android:layout_width="fill_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="vertical"
+	    android:layout_weight="70" >
+	  	<TextView
+	  	    android:id="@+id/comment_text"
+	  	    android:layout_width="match_parent"
+	  	    android:layout_height="match_parent"
+	  	    android:layout_marginTop="10dp"
+	  	    android:layout_marginBottom="10dp"
+	  	    android:layout_marginLeft="10dp"
+	  	    android:layout_marginRight="10dp"
+	  	    android:background="@drawable/candidate"
+	  	    android:padding="20dp"
+	  	    android:text="abc"
+	  	    android:textSize="@dimen/candidate_text_size"
+	  	    android:textColor="#000" />
+	</LinearLayout>
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:id="@+id/bullybody"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="vertical"
+	    android:background="@drawable/bully_background"
+	    android:layout_weight="30"
+	    android:weightSum="100" >
+	  	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		    android:id="@+id/midbodyfill"
+		    android:layout_width="match_parent"
+		    android:layout_height="0dp"
+		    android:orientation="horizontal" 
+			android:layout_weight="8" ></LinearLayout>
+	  	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		    android:id="@+id/midbody"
+		    android:layout_width="match_parent"
+		    android:layout_height="0dp"
+		    android:orientation="horizontal" 
+			android:layout_weight="69"
+	    	android:weightSum="100" >
+		    <ImageView xmlns:android="http://schemas.android.com/apk/res/android"
+			    android:id="@+id/bullyforyou"
+			    android:layout_width="0dp"
+			    android:layout_height="fill_parent"
+			    android:src="@drawable/bully_for_you"
+			    android:scaleType="fitStart"
+			    android:layout_weight="56"/>
+		 	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			    android:id="@+id/bullybuttons"
+			    android:layout_width="0dp"
+			    android:layout_height="wrap_content"
+			    android:orientation="vertical" 
+			    android:layout_weight="44"
+	    		android:weightSum="100">
+	
+				 <Button
+				     android:id="@+id/not_bully_button"
+				     android:layout_width="match_parent"
+				     android:layout_height="0dp"
+				     android:background="@drawable/cool_button"
+				     android:onClick="voteNotBully"
+		            android:layout_weight="33"  />
+		
+		        <Button
+		            android:id="@+id/bully_button"
+		            android:layout_width="match_parent"
+		            android:layout_height="0dp"
+		            android:background="@drawable/flame_button"
+		            android:onClick="voteBully"
+				    android:layout_marginTop="@dimen/bully_button_pad"
+		            android:layout_weight="33"/>
+		
+		        <Button
+		            android:id="@+id/pass_button"
+		            android:layout_width="match_parent"
+		            android:layout_height="0dp"
+		            android:background="@drawable/skip_button"
+		            android:onClick="incrementComment"
+				    android:layout_marginTop="@dimen/skip_button_pad"
+		            android:layout_weight="33"/>
+	
+			</LinearLayout>
+
+		</LinearLayout>
+		<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			android:id="@+id/bottombody"
+			android:layout_width="match_parent"
+			android:layout_height="0dp"
+			android:orientation="vertical" 
+			android:layout_weight="23"
+	    	android:weightSum="100" >
+		 	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+				android:id="@+id/bottombodyfill"
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:orientation="horizontal" 
+				android:layout_weight="40" ></LinearLayout>
+			<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+				android:id="@+id/scoreboxes"
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:orientation="horizontal" 
+				android:layout_weight="20"
+	    		android:weightSum="100" >
+			 	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+					android:id="@+id/bottomfill"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:orientation="horizontal" 
+					android:layout_weight="6.5" ></LinearLayout>
+			    <TextView
+	                android:id="@+id/salience_score_text"
+	                android:layout_width="0dp"
+	                android:layout_height="wrap_content"
+	                android:background="@drawable/score_box"
+	                android:maxLength="3"
+	                android:paddingTop="@dimen/score_pad_vert"
+	                android:paddingBottom="@dimen/score_pad_vert"
+					android:paddingLeft="@dimen/score_pad_horiz"
+	                android:paddingRight="@dimen/score_pad_horiz"
+	                android:text="123"
+	                android:textColor="#000"
+	  	    		android:textSize="@dimen/score_text_size"
+					android:layout_weight="11" />
+			    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+					android:id="@+id/bottomfill"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:orientation="horizontal" 
+					android:layout_weight="5.5" ></LinearLayout>
+	            <TextView
+	                android:id="@+id/bully_votes_text"
+	                android:layout_width="0dp"
+	                android:layout_height="wrap_content"
+	                android:background="@drawable/score_box"
+	                android:maxLength="3"
+	                android:paddingTop="@dimen/score_pad_vert"
+	                android:paddingBottom="@dimen/score_pad_vert"
+					android:paddingLeft="@dimen/score_pad_horiz"
+	                android:paddingRight="@dimen/score_pad_horiz"
+	                android:text="123"
+	                android:textColor="#000"
+	  	    		android:textSize="@dimen/score_text_size"
+					android:layout_weight="11"/>
+	            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+					android:id="@+id/bottomfill"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:orientation="horizontal" 
+					android:layout_weight="6" ></LinearLayout>
+	            <TextView
+	                android:id="@+id/not_bully_votes_text"
+	                android:layout_width="0dp"
+	                android:layout_height="wrap_content"
+	                android:background="@drawable/score_box"
+	                android:maxLength="3"
+	                android:paddingTop="@dimen/score_pad_vert"
+	                android:paddingBottom="@dimen/score_pad_vert"
+					android:paddingLeft="@dimen/score_pad_horiz"
+	                android:paddingRight="@dimen/score_pad_horiz"
+	                android:text="123"
+	                android:textColor="#000"
+	  	    		android:textSize="@dimen/score_text_size"
+					android:layout_weight="11"/>
+	            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+					android:id="@+id/bottomfill"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:orientation="horizontal" 
+					android:layout_weight="3.5" ></LinearLayout>
+	            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+					android:id="@+id/bottomfill"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:orientation="horizontal" 
+					android:layout_weight="44" ></LinearLayout>
+			</LinearLayout>
+			<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+				android:id="@+id/bottombodyfill"
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:orientation="horizontal" 
+				android:layout_weight="39" ></LinearLayout>
+		</LinearLayout>
+	</LinearLayout>
+</LinearLayout>
+
+       
+  
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/toplevel"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" 
+    android:background="#748387">
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:id="@+id/candidate_box"
+	    android:layout_width="fill_parent"
+	    android:layout_height="0dp"
+	    android:orientation="vertical"
+	    android:layout_weight=".25" >
+	  	<TextView
+	  	    android:id="@+id/comment_text"
+	  	    android:layout_width="fill_parent"
+	  	    android:layout_height="250dp"
+	  	    android:layout_marginBottom="10dp"
+	  	    android:layout_marginLeft="10dp"
+	  	    android:layout_marginRight="10dp"
+	  	    android:background="@drawable/candidate"
+	  	    android:padding="20dp"
+	  	    android:text="abc"
+	  	    android:textSize="@dimen/candidate_text_size"
+	  	    android:textColor="#000"
+	  	    android:layout_weight="1" />
+	</LinearLayout>
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:id="@+id/bullybody"
+	    android:layout_width="match_parent"
+	    android:layout_height="0dp"
+	    android:orientation="vertical"
+	    android:background="@drawable/bully_background"
+	    android:layout_weight=".75" >
+	  	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		    android:id="@+id/midbodyfill"
+		    android:layout_width="match_parent"
+		    android:layout_height="0dp"
+		    android:orientation="horizontal" 
+			android:layout_weight=".075" ></LinearLayout>
+	  	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		    android:id="@+id/midbody"
+		    android:layout_width="match_parent"
+		    android:layout_height="0dp"
+		    android:orientation="horizontal" 
+			android:layout_weight=".675" >
+		    <ImageView xmlns:android="http://schemas.android.com/apk/res/android"
+			    android:id="@+id/bullyforyou"
+			    android:layout_width="0dp"
+			    android:layout_height="fill_parent"
+			    android:src="@drawable/bully_for_you"
+			    android:scaleType="fitStart"
+			    android:layout_weight=".56"/>
+		 	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			    android:id="@+id/bullybuttons"
+			    android:layout_width="0dp"
+			    android:layout_height="wrap_content"
+			    android:orientation="vertical" 
+			    android:layout_weight=".44">
+	
+				 <Button
+				     android:id="@+id/not_bully_button"
+				     android:layout_width="match_parent"
+				     android:layout_height="0dp"
+				     android:background="@drawable/cool_button"
+				     android:onClick="voteNotBully"
+		            android:layout_weight=".33"  />
+		
+		        <Button
+		            android:id="@+id/bully_button"
+		            android:layout_width="match_parent"
+		            android:layout_height="0dp"
+		            android:background="@drawable/flame_button"
+		            android:onClick="voteBully"
+				    android:layout_marginTop="-4dp"
+		            android:layout_weight=".33"  />
+		
+		        <Button
+		            android:id="@+id/pass_button"
+		            android:layout_width="match_parent"
+		            android:layout_height="0dp"
+		            android:background="@drawable/skip_button"
+		            android:onClick="incrementComment"
+				    android:layout_marginTop="-4dp"
+		            android:layout_weight=".33"  />
+	
+			</LinearLayout>
+		</LinearLayout>
+		<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+			android:id="@+id/bottombody"
+			android:layout_width="match_parent"
+			android:layout_height="0dp"
+			android:orientation="vertical" 
+			android:layout_weight=".25" >
+		 	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+				android:id="@+id/bottombodyfill"
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:orientation="horizontal" 
+				android:layout_weight=".40" ></LinearLayout>
+			<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+				android:id="@+id/scoreboxes"
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:orientation="horizontal" 
+				android:layout_weight=".20" >
+			 	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+					android:id="@+id/bottomfill"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:orientation="horizontal" 
+					android:layout_weight=".065" ></LinearLayout>
+			    <TextView
+	                android:id="@+id/salience_score_text"
+	                android:layout_width="0dp"
+	                android:layout_height="wrap_content"
+	                android:background="@drawable/score_box"
+	                android:maxLength="3"
+	                android:paddingTop="@dimen/score_pad_vert"
+	                android:paddingBottom="@dimen/score_pad_vert"
+					android:paddingLeft="@dimen/score_pad_horiz"
+	                android:paddingRight="@dimen/score_pad_horiz"
+	                android:text="123"
+	                android:textColor="#000"
+	  	    		android:textSize="@dimen/score_text_size"
+					android:layout_weight=".11" />
+			    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+					android:id="@+id/bottomfill"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:orientation="horizontal" 
+					android:layout_weight=".055" ></LinearLayout>
+	            <TextView
+	                android:id="@+id/bully_votes_text"
+	                android:layout_width="0dp"
+	                android:layout_height="wrap_content"
+	                android:background="@drawable/score_box"
+	                android:maxLength="3"
+	                android:paddingTop="@dimen/score_pad_vert"
+	                android:paddingBottom="@dimen/score_pad_vert"
+					android:paddingLeft="@dimen/score_pad_horiz"
+	                android:paddingRight="@dimen/score_pad_horiz"
+	                android:text="123"
+	                android:textColor="#000"
+	  	    		android:textSize="@dimen/score_text_size"
+					android:layout_weight=".11"/>
+	            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+					android:id="@+id/bottomfill"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:orientation="horizontal" 
+					android:layout_weight=".06" ></LinearLayout>
+	            <TextView
+	                android:id="@+id/not_bully_votes_text"
+	                android:layout_width="0dp"
+	                android:layout_height="wrap_content"
+	                android:background="@drawable/score_box"
+	                android:maxLength="3"
+	                android:paddingTop="@dimen/score_pad_vert"
+	                android:paddingBottom="@dimen/score_pad_vert"
+					android:paddingLeft="@dimen/score_pad_horiz"
+	                android:paddingRight="@dimen/score_pad_horiz"
+	                android:text="123"
+	                android:textColor="#000"
+	  	    		android:textSize="@dimen/score_text_size"
+					android:layout_weight=".11"/>
+	            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+					android:id="@+id/bottomfill"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:orientation="horizontal" 
+					android:layout_weight=".035" ></LinearLayout>
+	            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+					android:id="@+id/bottomfill"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:orientation="horizontal" 
+					android:layout_weight=".44" ></LinearLayout>
+			</LinearLayout>
+			<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+				android:id="@+id/bottombodyfill"
+				android:layout_width="match_parent"
+				android:layout_height="0dp"
+				android:orientation="horizontal" 
+				android:layout_weight=".39" ></LinearLayout>
+		</LinearLayout>
+	</LinearLayout>
+</LinearLayout>
+
+</ViewSwitcher>
